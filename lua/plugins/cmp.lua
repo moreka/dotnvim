@@ -102,9 +102,19 @@ return {
         end,
       },
     },
-    opts = {
-      history = true,
-      delete_check_events = "TextChanged",
-    },
+    opts = function()
+      local ls = require("luasnip")
+      vim.keymap.set({ "i", "s" }, "<c-j>", function()
+        if ls.expand_or_jumpable() then
+          ls.expand_or_jump()
+        end
+      end, { silent = true })
+
+      return {
+        history = true,
+        delete_check_events = "TextChanged",
+        enable_autosnippets = true,
+      }
+    end,
   },
 }

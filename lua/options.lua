@@ -57,10 +57,12 @@ opt.tabstop = 2
 opt.termguicolors = true
 opt.timeoutlen = 300
 opt.undofile = true
-opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+opt.undodir = { vim.fn.stdpath("data") .. "/undodir" }
 opt.undolevels = 10000
 opt.updatetime = 200
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 opt.wrap = true
+
+vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"

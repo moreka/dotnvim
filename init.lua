@@ -17,7 +17,7 @@ vim.api.nvim_create_autocmd("User", {
       require("autocmds")
     end
     require("keymaps")
-  end
+  end,
 })
 
 vim.cmd.colorscheme("oxocarbon")

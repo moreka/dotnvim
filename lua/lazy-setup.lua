@@ -132,4 +132,3 @@ require("lazy").setup("plugins", {
     },
   },
 })
-

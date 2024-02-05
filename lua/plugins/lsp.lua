@@ -1,8 +1,8 @@
 local diag_icons = {
   Error = " ",
-  Warn  = " ",
-  Hint  = " ",
-  Info  = " ",
+  Warn = " ",
+  Hint = " ",
+  Info = " ",
 }
 
 return {
@@ -160,11 +160,12 @@ return {
     build = ":MasonUpdate",
     opts = {
       ensure_installed = {
-        "stylua",
         "luals",
         "pyright",
+        "stylua",
+        "black",
+        "isort",
       },
     },
   },
-
 }

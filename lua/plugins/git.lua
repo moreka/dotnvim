@@ -5,6 +5,6 @@ return {
     keys = {
       { "<leader>gs", "<cmd>Git<cr>" },
       { "<leader>gl", "<cmd>Git log<cr>" },
-    }
-  }
+    },
+  },
 }

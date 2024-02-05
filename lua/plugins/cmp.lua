@@ -49,7 +49,7 @@ return {
           { name = "buffer", keyword_length = 3 },
         }),
         formatting = {
-          format = function (entry, vim_item)
+          format = function(entry, vim_item)
             vim_item.menu = ({
               nvim_lsp = "[LSP]",
               luasnip = "[snip]",
@@ -59,7 +59,7 @@ return {
               vim_item.menu = string.format("[%s]", entry.source.name)
             end
             return vim_item
-          end
+          end,
           -- format = function(_, item)
           --   local icons = require("lazyvim.config").icons.kinds
           --   if icons[item.kind] then

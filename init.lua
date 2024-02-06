@@ -20,4 +20,9 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
-vim.cmd.colorscheme("oxocarbon")
+if os.getenv("BACKGROUND") == "light" then
+  vim.o.background = "light"
+  vim.cmd.colorscheme("adwaita")
+else
+  vim.cmd.colorscheme("minicyan")
+end

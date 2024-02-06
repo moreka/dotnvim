@@ -1,11 +1,13 @@
 return {
   { "nyoom-engineering/oxocarbon.nvim", priority = 1000 },
+  { "HoNamDuong/hybrid.nvim", opts = {}, priority = 1000 },
+  { "echasnovski/mini.base16", version = false, priority = 1000 },
   {
-    "sainnhe/sonokai",
+    "moreka/adwaita.nvim",
+    dev = true,
     priority = 1000,
-    init = function()
-      vim.g.sonokai_better_performance = 1
-      vim.g.sonokai_style = "maia"
+    config = function()
+      vim.o.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:Cursor/lCursor"
     end,
   },
 }

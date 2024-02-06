@@ -1,14 +1,17 @@
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+
 -- Highlight on yank
-vim.api.nvim_create_autocmd("TextYankPost", {
-  group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
+autocmd("TextYankPost", {
+  group = augroup("highlight_yank", { clear = true }),
   callback = function()
     vim.highlight.on_yank()
   end,
 })
 
 -- go to last loc when opening a buffer
-vim.api.nvim_create_autocmd("BufReadPost", {
-  group = vim.api.nvim_create_augroup("my_last_loc", { clear = true }),
+autocmd("BufReadPost", {
+  group = augroup("my_last_loc", { clear = true }),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
@@ -23,3 +26,55 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     end
   end,
 })
+
+autocmd({ "FileType" }, {
+  group = augroup("markdown_conceal", {}),
+  pattern = { "markdown", "rmd" },
+  callback = function()
+    vim.opt_local.conceallevel = 1
+  end,
+})
+
+autocmd({ "FileType" }, {
+  group = augroup("mail_textlength", {}),
+  pattern = { "mail" },
+  callback = function()
+    vim.opt_local.textwidth = 79
+  end,
+})
+
+autocmd({ "FileType" }, {
+  group = augroup("fugitive_keys", {}),
+  pattern = { "fugitive" },
+  callback = function(args)
+    local opts = { buffer = args.buf, remap = false }
+    vim.keymap.set("n", "<leader>p", function()
+      vim.cmd.Git("push")
+    end, opts)
+
+    vim.keymap.set("n", "<leader>P", function()
+      vim.cmd.Git("pull")
+    end, opts)
+
+    vim.keymap.set("n", "q", function()
+      vim.api.nvim_win_close(vim.api.nvim_get_current_win(), false)
+    end, opts)
+  end,
+})
+
+local hl = vim.api.nvim_set_hl
+local csgrp = augroup("colorscheme_group", { clear = true })
+
+-- creates an autocmd that runs `cb` when setting the colorscheme to `scheme`.
+local custom_colors = function(scheme, cb)
+  autocmd("Colorscheme", {
+    group = csgrp,
+    pattern = scheme,
+    callback = cb,
+  })
+end
+
+custom_colors("zenburn", function()
+  local c = require("zenburn.palette")
+  hl(0, "StatusLine", { bg = c.CursorLine.bg, fg = c.Normal.fg })
+end)

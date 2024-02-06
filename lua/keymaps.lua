@@ -28,8 +28,10 @@ map("n", "<leader>pv", "<cmd>Ex<cr>")
 
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
-map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
-map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
+map("n", "[q", vim.cmd.cprevious, { desc = "previous quickfix" })
+map("n", "]q", vim.cmd.cnext, { desc = "next quickfix" })
+map("n", "[t", vim.cmd.tabprevious, { desc = "previous tab" })
+map("n", "]t", vim.cmd.tabnext, { desc = "next tab" })
 
 -- other stuff
 map("n", "Q", "<nop>")

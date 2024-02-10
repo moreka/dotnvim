@@ -6,6 +6,7 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
+      "micangl/cmp-vimtex",
     },
     opts = function()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
@@ -13,7 +14,7 @@ return {
       local defaults = require("cmp.config.default")()
       return {
         completion = {
-          completeopt = "menu,menuone,noinsert",
+          completeopt = "menu,menuone,noselect",
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -54,6 +55,7 @@ return {
               nvim_lsp = "[LSP]",
               luasnip = "[snip]",
               buffer = "[buf]",
+              vimtex = vim_item.menu,
             })[entry.source.name]
             if not vim_item.menu then
               vim_item.menu = string.format("[%s]", entry.source.name)
@@ -69,9 +71,10 @@ return {
           -- end,
         },
         experimental = {
-          ghost_text = {
-            hl_group = "CmpGhostText",
-          },
+          ghost_text = false,
+          -- {
+          --   hl_group = "CmpGhostText",
+          -- },
         },
         sorting = defaults.sorting,
       }
@@ -80,7 +83,16 @@ return {
       for _, source in ipairs(opts.sources) do
         source.group_index = source.group_index or 1
       end
-      require("cmp").setup(opts)
+      local cmp = require("cmp")
+      cmp.setup(opts)
+      cmp.setup.filetype("tex", {
+        sources = {
+          { name = "luasnip" },
+          { name = "vimtex" },
+          { name = "path", option = { trailing_slash = true } },
+          { name = "buffer", keyword_length = 3 },
+        },
+      })
     end,
   },
   {
@@ -109,6 +121,8 @@ return {
           ls.expand_or_jump()
         end
       end, { silent = true })
+
+      require("snippets")
 
       return {
         history = true,

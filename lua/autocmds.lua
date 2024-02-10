@@ -78,3 +78,17 @@ custom_colors("zenburn", function()
   local c = require("zenburn.palette")
   hl(0, "StatusLine", { bg = c.CursorLine.bg, fg = c.Normal.fg })
 end)
+
+local choptgrp = augroup("change_opt_group", { clear = true })
+autocmd("OptionSet", {
+  group = choptgrp,
+  nested = true,
+  callback = function()
+    vim.cmd.hi("clear")
+    if vim.o.background == "light" then
+      vim.cmd.colorscheme(vim.g.light_theme)
+    else
+      vim.cmd.colorscheme(vim.g.dark_theme)
+    end
+  end,
+})

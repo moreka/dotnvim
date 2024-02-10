@@ -5,13 +5,14 @@ return {
     init = function()
       vim.g.vimtex_compiler_silent = 0
       vim.g.vimtex_complete_bib = {
-        simple = 0, -- change to 1 if using auto-complete
-        menu_fmt = "@year, @author_short, @title",
+        simple = 1, -- change to 1 if using auto-complete
+        -- menu_fmt = "@year, @author_short, @title",
       }
       vim.g.vimtex_doc_handlers = { "vimtex#doc#handlers#texdoc" }
       vim.g.vimtex_format_enabled = 1
       vim.g.vimtex_quickfix_method = "pplatex"
       vim.g.vimtex_quickfix_open_on_warning = 0
+      vim.g.vimtex_matchparen_enabled = 0
       vim.g.vimtex_syntax_enabled = 1
       vim.g.vimtex_syntax_conceal_disable = 1
       vim.g.vimtex_include_search_enabled = 1

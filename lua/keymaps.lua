@@ -36,6 +36,7 @@ map("n", "]t", vim.cmd.tabnext, { desc = "next tab" })
 -- other stuff
 map("n", "Q", "<nop>")
 map({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
+map({ "n", "v", "i" }, "<f1>", "<Nop>", { silent = true })
 
 map("t", "<Esc><Esc>", "<C-\\><C-n>")
 map("t", "<A-h>", "<C-\\><C-n><C-w>h")

@@ -62,6 +62,7 @@ autocmd({ "FileType" }, {
   end,
 })
 
+--{{{ Colorscheme Mods
 local hl = vim.api.nvim_set_hl
 local csgrp = augroup("colorscheme_group", { clear = true })
 
@@ -74,15 +75,16 @@ local custom_colors = function(scheme, cb)
   })
 end
 
-custom_colors("zenburn", function()
-  local c = require("zenburn.palette")
-  hl(0, "StatusLine", { bg = c.CursorLine.bg, fg = c.Normal.fg })
+custom_colors("minischeme", function()
+  hl(0, "Normal", { bg = "#e2e5ca", fg = "#000000" })
 end)
+--}}}
 
 local choptgrp = augroup("change_opt_group", { clear = true })
 autocmd("OptionSet", {
   group = choptgrp,
   nested = true,
+  pattern = "background",
   callback = function()
     vim.cmd.hi("clear")
     if vim.o.background == "light" then
@@ -92,3 +94,5 @@ autocmd("OptionSet", {
     end
   end,
 })
+
+-- vim: foldmethod=marker

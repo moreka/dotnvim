@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 vim.g.dark_theme = "minicyan"
-vim.g.light_theme = "adwaita"
+vim.g.light_theme = "minischeme"
 
 if os.getenv("BACKGROUND") == "light" then
   vim.o.background = "light"

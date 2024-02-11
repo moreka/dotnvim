@@ -25,6 +25,7 @@ opt.fillchars = {
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
+opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25,r-cr:hor20,o:hor50"
 opt.hlsearch = true
 opt.ignorecase = true
 opt.inccommand = "nosplit" -- preview incremental substitute

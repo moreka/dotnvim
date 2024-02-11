@@ -59,6 +59,7 @@ return {
         },
         marksman = {},
         pyright = {},
+        rust_analyzer = { mason = false },
       },
       setup = {},
     },

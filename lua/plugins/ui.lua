@@ -1,4 +1,6 @@
 return {
+  { "echasnovski/mini.statusline", event = "VeryLazy", opts = {} },
+
   { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
   { "nyoom-engineering/oxocarbon.nvim", priority = 1000 },
   { "HoNamDuong/hybrid.nvim", opts = {}, priority = 1000 },

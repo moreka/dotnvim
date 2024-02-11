@@ -43,7 +43,7 @@ opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "glob
 opt.shiftround = true -- Round indent to multiple of shiftwidth
 opt.shiftwidth = 2
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.showmode = true
+opt.showmode = false
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes"
 opt.smartcase = true

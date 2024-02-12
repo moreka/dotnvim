@@ -62,37 +62,4 @@ autocmd({ "FileType" }, {
   end,
 })
 
---{{{ Colorscheme Mods
-local hl = vim.api.nvim_set_hl
-local csgrp = augroup("colorscheme_group", { clear = true })
-
--- creates an autocmd that runs `cb` when setting the colorscheme to `scheme`.
-local custom_colors = function(scheme, cb)
-  autocmd("Colorscheme", {
-    group = csgrp,
-    pattern = scheme,
-    callback = cb,
-  })
-end
-
-custom_colors("minischeme", function()
-  hl(0, "Normal", { bg = "#e2e5ca", fg = "#000000" })
-end)
---}}}
-
-local choptgrp = augroup("change_opt_group", { clear = true })
-autocmd("OptionSet", {
-  group = choptgrp,
-  nested = true,
-  pattern = "background",
-  callback = function()
-    vim.cmd.hi("clear")
-    if vim.o.background == "light" then
-      vim.cmd.colorscheme(vim.g.light_theme)
-    else
-      vim.cmd.colorscheme(vim.g.dark_theme)
-    end
-  end,
-})
-
 -- vim: foldmethod=marker

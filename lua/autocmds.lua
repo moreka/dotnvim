@@ -62,4 +62,11 @@ autocmd({ "FileType" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd("User", {
+  group = vim.api.nvim_create_augroup("init_vimtex", {}),
+  pattern = "VimtexEventViewReverse",
+  desc = "VimTeX: Center view on inverse search",
+  command = [[ normal! zMzvzz ]],
+})
+
 -- vim: foldmethod=marker

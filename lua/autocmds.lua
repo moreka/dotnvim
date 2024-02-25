@@ -66,7 +66,10 @@ vim.api.nvim_create_autocmd("User", {
   group = vim.api.nvim_create_augroup("init_vimtex", {}),
   pattern = "VimtexEventViewReverse",
   desc = "VimTeX: Center view on inverse search",
-  command = [[ normal! zMzvzz ]],
+  callback = function()
+    vim.cmd([[ normal! zMzvzz ]])
+    require("alacritty").setup() -- hack needed to revert the cursor color
+  end,
 })
 
 -- vim: foldmethod=marker

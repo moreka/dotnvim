@@ -1,5 +1,5 @@
-local dark_theme = "minicyan"
-local light_theme = "minischeme"
+local dark_theme = "modus_vivendi"
+local light_theme = "modus_operandi"
 
 local hl = vim.api.nvim_set_hl
 local csgrp = vim.api.nvim_create_augroup("colorscheme_group", { clear = true })

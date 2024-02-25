@@ -40,5 +40,17 @@ end)
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = vim.api.nvim_create_augroup("RemoveWhitespace", {}),
   pattern = "*",
-  command = [[%s/\s\+$//e]],
+  callback = function()
+    -- from https://github.com/echasnovski/mini.nvim/blob/b7403ad0c2a4dab777244171ca1b7e8c89696584/lua/mini/trailspace.lua#L111
+    local curpos = vim.api.nvim_win_get_cursor(0)
+    vim.cmd([[keeppatterns %s/\s\+$//e]])
+    vim.api.nvim_win_set_cursor(0, curpos)
+  end,
 })
+
+-- inkscape figures
+
+vim.cmd([[
+  inoremap <F1> <Esc>: silent exec '.!~/git/inkscape-figures/venv/bin/inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
+  nnoremap <F1> : silent exec '!~/git/inkscape-figures/venv/bin/inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
+]])

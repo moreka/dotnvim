@@ -1,4 +1,4 @@
-local dark_theme = "modus_vivendi"
+local dark_theme = "gruvbox"
 local light_theme = "modus_operandi"
 
 local hl = vim.api.nvim_set_hl

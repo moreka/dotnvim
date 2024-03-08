@@ -60,6 +60,28 @@ return {
         marksman = {},
         pyright = {},
         rust_analyzer = { mason = false },
+        ltex = {
+          settings = {
+            ltex = {
+              language = "en-US",
+              additionalRules = {
+                languageModel = "/home/moreka/codes/ngrams/",
+              },
+              latex = {
+                commands = {
+                  ["\\crefrange{}{}"] = "dummy",
+                  ["\\citep[]{}"] = "dummy",
+                  ["\\citep[][]{}"] = "dummy",
+                  ["\\citet[]{}"] = "dummy",
+                  ["\\ac{}"] = "dummy",
+                  ["\\acl{}"] = "dummy",
+                  ["\\acdef{}"] = "dummy",
+                  ["\\newmacro{}{}"] = "ignore",
+                },
+              },
+            },
+          },
+        },
       },
       setup = {},
     },
@@ -82,6 +104,14 @@ return {
           vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, key_opts)
           vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, key_opts)
           vim.keymap.set("n", "gr", vim.lsp.buf.references, key_opts)
+
+          -- Extra step for LTeX
+          if client and client.name == "ltex" then
+            require("ltex_extra").setup({
+              load_langs = { "en-US" },
+              path = vim.fn.stdpath("data") .. "/ltex",
+            })
+          end
         end,
       })
 
@@ -172,4 +202,5 @@ return {
       },
     },
   },
+  { "barreiroleo/ltex_extra.nvim" },
 }

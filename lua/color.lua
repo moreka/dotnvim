@@ -17,6 +17,16 @@ custom_colors("minischeme", function()
   hl(0, "Normal", { bg = "#e2e5ca", fg = "#000000" })
 end)
 
+custom_colors("gruvbox-material", function ()
+  vim.cmd([[
+    function! s:custom_gruvvy() abort
+      let l:palette = gruvbox_material#get_palette('hard', 'mix', {})
+      call gruvbox_material#highlight('texMathCmd', l:palette.aqua, l:palette.none)
+    endfunction
+    call s:custom_gruvvy()
+  ]])
+end)
+
 local choptgrp = vim.api.nvim_create_augroup("change_opt_group", { clear = true })
 vim.api.nvim_create_autocmd("OptionSet", {
   group = choptgrp,

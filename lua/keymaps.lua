@@ -32,6 +32,8 @@ map("n", "[q", vim.cmd.cprevious, { desc = "previous quickfix" })
 map("n", "]q", vim.cmd.cnext, { desc = "next quickfix" })
 map("n", "[t", vim.cmd.tabprevious, { desc = "previous tab" })
 map("n", "]t", vim.cmd.tabnext, { desc = "next tab" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "previous diag" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "next diag" })
 
 -- other stuff
 map("n", "Q", "<nop>")

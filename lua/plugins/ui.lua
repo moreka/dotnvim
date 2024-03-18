@@ -54,7 +54,7 @@ return {
     "miikanissi/modus-themes.nvim",
     priority = 1000,
     opts = {
-      variant = "tinted", -- "deuteranopia",
+      variant = "default", -- "deuteranopia",
       styles = { keywords = { italic = false } },
       on_highlights = function(h, c)
         -- h.texCmd = { link = "Function" }

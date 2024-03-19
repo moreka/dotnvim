@@ -1,9 +1,8 @@
 return {
-  { "echasnovski/mini.statusline", enabled = false, event = "VeryLazy", opts = {} },
+  { "echasnovski/mini.statusline", enabled = true, event = "VeryLazy", opts = {} },
   { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
   { "folke/zen-mode.nvim", opts = { plugins = { alacritty = { enabled = true } } }, cmd = { "ZenMode" } },
 
-  { "moreka/gruber-darker.nvim", priority = 1000 },
   {
     "sainnhe/gruvbox-material",
     priority = 1000,
@@ -12,42 +11,6 @@ return {
       vim.g.gruvbox_material_background = "hard"
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_better_performance = 1
-    end,
-  },
-  {
-    "ellisonleao/gruvbox.nvim",
-    priority = 1000,
-    opts = function()
-      local palette = require("gruvbox").palette
-      return {
-        terminal_colors = true,
-        undercurl = true,
-        underline = true,
-        bold = true,
-        italic = {
-          strings = false,
-          emphasis = true,
-          comments = true,
-          operators = false,
-          folds = true,
-        },
-        strikethrough = true,
-        invert_selection = false,
-        invert_signs = false,
-        invert_tabline = false,
-        invert_intend_guides = false,
-        inverse = true, -- invert background for search, diffs, statuslines and errors
-        contrast = "", -- can be "hard", "soft" or empty string
-        palette_overrides = {},
-        overrides = {
-          texDelim = { fg = palette.bright_yellow },
-          texMathDelimZone = { fg = palette.bright_yellow },
-          texMathCmd = { fg = palette.bright_aqua },
-          texEnvArgName = { fg = palette.bright_aqua, bold = true },
-        },
-        dim_inactive = false,
-        transparent_mode = false,
-      }
     end,
   },
   {
@@ -68,8 +31,20 @@ return {
         -- h.texMathCmd = { link = "texMathZone" }
         h.texCmdEnv = { link = "Function" }
         h.texDelim = { link = "Normal" }
+
+        -- h.MiniStatuslineDevinfo = { fg = p.base04, bg = p.base02, attr = nil, sp = nil }
+        -- h.MiniStatuslineFileinfo = { link = "MiniStatuslineDevinfo" }
+        -- h.MiniStatuslineFilename = { fg = p.base03, bg = p.base01, attr = nil, sp = nil }
+        -- h.MiniStatuslineInactive = { link = "MiniStatuslineFilename" }
+        -- h.MiniStatuslineModeCommand = { fg = p.base00, bg = p.base08, attr = "bold", sp = nil }
+        -- h.MiniStatuslineModeInsert = { fg = p.base00, bg = p.base0D, attr = "bold", sp = nil }
+        -- h.MiniStatuslineModeNormal = { fg = p.base00, bg = p.base05, attr = "bold", sp = nil }
+        -- h.MiniStatuslineModeOther = { fg = p.base00, bg = p.base03, attr = "bold", sp = nil }
+        -- h.MiniStatuslineModeReplace = { fg = p.base00, bg = p.base0E, attr = "bold", sp = nil }
+        -- h.MiniStatuslineModeVisual = { fg = p.base00, bg = p.base0B, attr = "bold", sp = nil }
       end,
     },
   },
   { "echasnovski/mini.base16", version = false, priority = 1000 },
+  { "tjdevries/colorbuddy.nvim", priority = 1000 },
 }

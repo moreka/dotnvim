@@ -4,7 +4,8 @@ return {
     event = "LazyFile",
     opts = {
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
-      linters_by_ft = { markdown = { "markdownlint" } },
+      -- linters_by_ft = { markdown = { "markdownlint" } },
+      linters_by_ft = {},
       linters = {},
     },
     config = function(_, opts)

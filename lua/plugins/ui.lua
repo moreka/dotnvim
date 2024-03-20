@@ -46,5 +46,5 @@ return {
     },
   },
   { "echasnovski/mini.base16", version = false, priority = 1000 },
-  { "tjdevries/colorbuddy.nvim", priority = 1000 },
+  { "tjdevries/colorbuddy.nvim" },
 }

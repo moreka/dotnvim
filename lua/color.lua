@@ -1,4 +1,4 @@
-local dark_theme = "gruvbuddy"
+local dark_theme = "mygruvbuddy"
 local light_theme = "modus_operandi"
 
 local hl = vim.api.nvim_set_hl
@@ -25,15 +25,6 @@ custom_colors("gruvbox-material", function ()
     endfunction
     call s:custom_gruvvy()
   ]])
-end)
-
-custom_colors("gruvbuddy", function ()
-  local Group = require("colorbuddy.group").Group
-  local c = require("colorbuddy.color").colors
-  local g = require("colorbuddy.group").groups
-
-  Group.new("texCmd", c.orange)
-  Group.new("texMathCmd", c.blue:light())
 end)
 
 local choptgrp = vim.api.nvim_create_augroup("change_opt_group", { clear = true })

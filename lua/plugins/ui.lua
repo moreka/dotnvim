@@ -1,7 +1,11 @@
 return {
   { "echasnovski/mini.statusline", enabled = true, event = "VeryLazy", opts = {} },
   { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
-  { "folke/zen-mode.nvim", opts = { plugins = { alacritty = { enabled = true } } }, cmd = { "ZenMode" } },
+  {
+    "folke/zen-mode.nvim",
+    opts = { plugins = { alacritty = { enabled = true, font = 16 }, twilight = { enabled = false } } },
+    cmd = { "ZenMode" },
+  },
 
   {
     "sainnhe/gruvbox-material",

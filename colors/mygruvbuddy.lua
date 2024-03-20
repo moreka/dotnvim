@@ -29,6 +29,9 @@ Color.new("gray0", background_string)
 
 Group.new("Normal", c.superwhite, c.gray0)
 
+Group.new("LineNr", c.gray2:light(), c.gray0)
+Group.new("LineNr", c.gray2:light(), c.gray0)
+
 Group.new("@constant", c.orange, nil, s.none)
 Group.new("@function", c.yellow, nil, s.none)
 Group.new("@function.bracket", g.Normal, g.Normal)
@@ -44,5 +47,6 @@ Group.link("texMathDelim", g.Normal)
 Group.link("texMathEnvArgName", g.PreProc)
 Group.new("texEnvOpt", c.red)
 Group.link("texRefOpt", g.texEnvOpt)
+Group.new("texRefArg", c.purple:light(), nil, s.underline)
 
 Group.new("@function.call.lua", c.blue:dark(), nil, nil)

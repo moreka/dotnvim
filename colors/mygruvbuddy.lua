@@ -47,6 +47,12 @@ Group.link("texMathDelim", g.Normal)
 Group.link("texMathEnvArgName", g.PreProc)
 Group.new("texEnvOpt", c.red)
 Group.link("texRefOpt", g.texEnvOpt)
-Group.new("texRefArg", c.purple:light(), nil, s.underline)
+Group.new("texRefArg", c.purple:light())
+
+
+Group.new("Headline1", c.green, c.gray2, s.bold)
+Group.new("Headline2", c.blue, c.gray2, s.bold)
+Group.new("Headline3", c.yellow, c.gray2, s.bold)
+
 
 Group.new("@function.call.lua", c.blue:dark(), nil, nil)

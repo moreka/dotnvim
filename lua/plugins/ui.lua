@@ -1,6 +1,6 @@
 return {
   { "echasnovski/mini.statusline", enabled = true, event = "VeryLazy", opts = {} },
-  { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
+  { "moreka/alacritty.nvim", dev = false, event = "Colorscheme", opts = {} },
   {
     "folke/zen-mode.nvim",
     opts = {

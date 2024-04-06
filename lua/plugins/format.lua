@@ -22,6 +22,12 @@ return {
         lua = { "stylua" },
         sh = { "shfmt" },
         python = { "black", "isort" },
+        tex = { "latexindent" },
+      },
+      formatters = {
+        latexindent = {
+          args = { "-l", "-" },
+        },
       },
     },
   },

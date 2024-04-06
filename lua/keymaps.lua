@@ -43,5 +43,5 @@ map({ "n", "v", "i" }, "<f1>", "<Nop>", { silent = true })
 map("t", "<Esc><Esc>", "<C-\\><C-n>")
 map("t", "<A-h>", "<C-\\><C-n><C-w>h")
 
-map("n", "<C-d>", "<C-d>zz")
-map("n", "<C-u>", "<C-u>zz")
+-- map("n", "<C-d>", "<C-d>zz")
+-- map("n", "<C-u>", "<C-u>zz")

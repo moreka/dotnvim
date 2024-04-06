@@ -1,5 +1,5 @@
 local dark_theme = "mygruvbuddy"
-local light_theme = "modus_operandi"
+local light_theme = "hues"
 
 local hl = vim.api.nvim_set_hl
 local csgrp = vim.api.nvim_create_augroup("colorscheme_group", { clear = true })

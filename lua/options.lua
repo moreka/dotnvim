@@ -32,6 +32,7 @@ opt.inccommand = "nosplit" -- preview incremental substitute
 opt.incsearch = true
 opt.laststatus = 2
 opt.list = true -- Show some invisible characters (tabs...
+opt.listchars = "tab:» ,trail:-"
 opt.linebreak = true
 opt.mouse = "a"
 opt.number = true

@@ -1,5 +1,18 @@
 return {
-  { "echasnovski/mini.statusline", enabled = true, event = "VeryLazy", opts = {} },
+  {
+    "echasnovski/mini.statusline",
+    enabled = true,
+    event = "VeryLazy",
+    config = function()
+      local statusline = require("mini.statusline")
+      statusline.setup({ use_icons = true })
+
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_location = function()
+        return "%2l:%-2v"
+      end
+    end,
+  },
   { "moreka/alacritty.nvim", dev = false, event = "Colorscheme", opts = {} },
   {
     "folke/zen-mode.nvim",
@@ -53,17 +66,6 @@ return {
         -- h.texMathCmd = { link = "texMathZone" }
         h.texCmdEnv = { link = "Function" }
         h.texDelim = { link = "Normal" }
-
-        -- h.MiniStatuslineDevinfo = { fg = p.base04, bg = p.base02, attr = nil, sp = nil }
-        -- h.MiniStatuslineFileinfo = { link = "MiniStatuslineDevinfo" }
-        -- h.MiniStatuslineFilename = { fg = p.base03, bg = p.base01, attr = nil, sp = nil }
-        -- h.MiniStatuslineInactive = { link = "MiniStatuslineFilename" }
-        -- h.MiniStatuslineModeCommand = { fg = p.base00, bg = p.base08, attr = "bold", sp = nil }
-        -- h.MiniStatuslineModeInsert = { fg = p.base00, bg = p.base0D, attr = "bold", sp = nil }
-        -- h.MiniStatuslineModeNormal = { fg = p.base00, bg = p.base05, attr = "bold", sp = nil }
-        -- h.MiniStatuslineModeOther = { fg = p.base00, bg = p.base03, attr = "bold", sp = nil }
-        -- h.MiniStatuslineModeReplace = { fg = p.base00, bg = p.base0E, attr = "bold", sp = nil }
-        -- h.MiniStatuslineModeVisual = { fg = p.base00, bg = p.base0B, attr = "bold", sp = nil }
       end,
     },
   },

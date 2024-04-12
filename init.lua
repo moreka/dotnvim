@@ -1,5 +1,5 @@
 if vim.g.neovide then
-  vim.o.guifont = "Hack:h12"
+  vim.o.guifont = "Hack:h10"
   vim.g.neovide_floating_shadow = true
   vim.g.neovide_floating_z_height = 10
   vim.g.neovide_light_angle_degrees = 45

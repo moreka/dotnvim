@@ -39,6 +39,17 @@ return {
   },
 
   {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+    opts = {
+      styles = { italic = false },
+      highlight_groups = {
+        Cursor = { bg = "love" },
+      }
+    },
+  },
+  {
     "sainnhe/gruvbox-material",
     priority = 1000,
     init = function()

@@ -26,7 +26,7 @@ return {
       },
       formatters = {
         latexindent = {
-          args = { "-l", "-" },
+          args = { "-m", "-l", "-" },
         },
       },
     },

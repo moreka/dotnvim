@@ -12,6 +12,13 @@ if vim.g.neovide then
   vim.keymap.set({ "n", "v", "x" }, "<M-S-j>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")
 
   vim.keymap.set({ "n", "v", "i" }, "<M-v>", '<cmd>norm "+P<cr>')
+
+  if vim.uv.os_uname().sysname == "Linux" then
+  else
+    vim.g.neovide_floating_blur_amount_x = 2.0
+    vim.g.neovide_floating_blur_amount_y = 2.0
+    vim.g.neovide_input_macos_alt_is_meta = true
+  end
 end
 
 vim.g.mapleader = " "

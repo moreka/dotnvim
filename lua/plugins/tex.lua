@@ -35,4 +35,21 @@ return {
       }
     end,
   },
+  {
+    "ludovicchabant/vim-gutentags",
+    event = "VeryLazy",
+    init = function()
+      vim.g.gutentags_define_advanced_commands = 1
+      vim.g.gutentags_cache_dir = vim.fn.stdpath("cache") .. "/ctags"
+      vim.g.gutentags_ctags_extra_args = {
+        "--tag-relative=yes",
+        "--fields=+aimS",
+      }
+      vim.g.gutentags_file_list_command = {
+        markers = {
+          [".git"] = "git ls-files",
+        },
+      }
+    end,
+  },
 }

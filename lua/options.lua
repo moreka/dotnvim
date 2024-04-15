@@ -56,6 +56,7 @@ opt.splitkeep = "screen"
 opt.splitright = true
 opt.swapfile = false
 opt.tabstop = 2
+opt.tags = { "tags;~", ".tags;~" }
 opt.termguicolors = true
 opt.timeoutlen = 300
 opt.undofile = true

@@ -98,4 +98,5 @@ return {
   { "echasnovski/mini.base16", version = false, priority = 1000 },
   { "echasnovski/mini.hues", version = false },
   { "tjdevries/colorbuddy.nvim" },
+  { "lunacookies/vim-colors-xcode", priority = 1000 },
 }

@@ -1,5 +1,5 @@
-local dark_theme = "xcodedarkhc"
-local light_theme = "xcodelighthc"
+local dark_theme = "nord"
+local light_theme = "xcodelight"
 
 local hl = vim.api.nvim_set_hl
 local csgrp = vim.api.nvim_create_augroup("colorscheme_group", { clear = true })
@@ -27,7 +27,13 @@ custom_colors("gruvbox-material", function()
   ]])
 end)
 
-custom_colors("xcodelighthc", function()
+custom_colors("nord", function()
+  hl(0, "Visual", { fg = "#2E3440", bg = "#88C0D0" })
+  hl(0, "VisualNOS", { fg = "#2E3440", bg = "#88C0D0" })
+  hl(0, "Delimiter", { fg = "#D8DEE9" })
+end)
+
+custom_colors("xcodelight", function()
   vim.cmd([[
     hi texCmd guifg=#ad3da4 guibg=NONE gui=NONE ctermfg=127 ctermbg=NONE cterm=NONE
     hi! link texMathEnvArgName texEnvArgName

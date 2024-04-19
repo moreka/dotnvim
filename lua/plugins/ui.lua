@@ -99,4 +99,11 @@ return {
   { "echasnovski/mini.hues", version = false },
   { "tjdevries/colorbuddy.nvim" },
   { "lunacookies/vim-colors-xcode", priority = 1000 },
+  {
+    "shaunsingh/nord.nvim",
+    priority = 1000,
+    init = function()
+      vim.g.nord_italic = false
+    end,
+  },
 }

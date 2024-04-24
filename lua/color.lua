@@ -1,4 +1,4 @@
-local dark_theme = "nord"
+local dark_theme = "gruber-darker"
 local light_theme = "xcodelight"
 
 local hl = vim.api.nvim_set_hl

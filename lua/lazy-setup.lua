@@ -86,7 +86,7 @@ require("lazy").setup("plugins", {
   },
   dev = {
     path = "~/git",
-    fallback = false, -- Fallback to git when local plugin doesn't exist
+    fallback = true, -- Fallback to git when local plugin doesn't exist
   },
   install = {
     colorscheme = { "default" },

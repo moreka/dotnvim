@@ -77,6 +77,9 @@ return {
           -- },
         },
         sorting = defaults.sorting,
+        view = {
+          entries = "native",
+        },
       }
     end,
     config = function(_, opts)

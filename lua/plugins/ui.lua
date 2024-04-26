@@ -13,7 +13,7 @@ return {
       end
     end,
   },
-  { "moreka/alacritty.nvim", dev = false, event = "Colorscheme", opts = {} },
+  { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
   {
     "folke/zen-mode.nvim",
     opts = {
@@ -99,6 +99,7 @@ return {
   { "echasnovski/mini.hues", version = false },
   { "tjdevries/colorbuddy.nvim" },
   { "lunacookies/vim-colors-xcode", priority = 1000 },
+  { "moreka/gruber-darker", priority = 1000, dev = true },
   {
     "shaunsingh/nord.nvim",
     priority = 1000,

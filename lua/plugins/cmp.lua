@@ -7,14 +7,21 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "micangl/cmp-vimtex",
+      "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
     },
     opts = function()
-      vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
       local cmp = require("cmp")
+      local luasnip = require("luasnip")
       local defaults = require("cmp.config.default")()
       return {
         completion = {
           completeopt = "menu,menuone,noselect",
+        },
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -42,9 +49,20 @@ return {
           }),
           ["<C-e>"] = cmp.mapping.abort(), -- TODO: vs close()
           ["<tab>"] = cmp.config.disable,
+          ["<C-j>"] = cmp.mapping(function()
+            if luasnip.expand_or_locally_jumpable() then
+              luasnip.expand_or_jump()
+            end
+          end, { "i", "s" }),
+          ["<C-l>"] = cmp.mapping(function()
+            if luasnip.choice_active() then
+              luasnip.change_choice(1)
+            end
+          end, { "i", "s" }),
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
+          { name = "luasnip" },
           { name = "path" },
         }, {
           { name = "buffer", keyword_length = 3 },
@@ -72,13 +90,10 @@ return {
         },
         experimental = {
           ghost_text = false,
-          -- {
-          --   hl_group = "CmpGhostText",
-          -- },
         },
         sorting = defaults.sorting,
         view = {
-          entries = "native",
+          entries = "custom",
         },
       }
     end,
@@ -101,36 +116,20 @@ return {
   {
     "L3MON4D3/LuaSnip",
     build = "make install_jsregexp",
-    dependencies = {
-      {
-        "nvim-cmp",
-        dependencies = {
-          "saadparwaiz1/cmp_luasnip",
-        },
-        opts = function(_, opts)
-          opts.snippet = {
-            expand = function(args)
-              require("luasnip").lsp_expand(args.body)
-            end,
-          }
-          table.insert(opts.sources, { name = "luasnip" })
-        end,
-      },
-    },
     opts = function()
-      local ls = require("luasnip")
-      vim.keymap.set({ "i", "s" }, "<c-j>", function()
-        if ls.expand_or_jumpable() then
-          ls.expand_or_jump()
-        end
-      end, { silent = true })
-
       require("snippets")
-
       return {
         history = true,
+        updateevents = "TextChanged,TextChangedI",
         delete_check_events = "TextChanged",
         enable_autosnippets = true,
+        ext_opts = {
+          [require("luasnip.util.types").choiceNode] = {
+            active = {
+              virt_text = { { " « ", "NonTest" } },
+            },
+          },
+        },
       }
     end,
   },

@@ -32,12 +32,14 @@ return {
       }
       vim.g.vimtex_syntax_custom_cmds = {
         { name = "para", argstyle = "bold", opt = false },
+        { name = "defn", argstyle = "ital", opt = false },
       }
     end,
   },
   {
     "ludovicchabant/vim-gutentags",
-    event = "VeryLazy",
+    ft = "tex",
+    enabled = true,
     init = function()
       vim.g.gutentags_define_advanced_commands = 1
       vim.g.gutentags_cache_dir = vim.fn.stdpath("cache") .. "/ctags"

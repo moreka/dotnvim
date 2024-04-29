@@ -82,10 +82,6 @@ return {
             },
           },
         },
-        -- grammarly = {
-        --   init_options = { client_id = "<>" },
-        --   filetypes = { "markdown", "plaintex", "tex" },
-        -- },
       },
       setup = {},
     },

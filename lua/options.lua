@@ -25,10 +25,11 @@ opt.fillchars = {
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
-if not vim.g.neovide then
-  opt.guicursor = "a:block-blinkwait500-blinkon500-blinkoff500-Cursor/lCursor"
-  -- opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25,r-cr:hor20,o:hor50"
-end
+--if not vim.g.neovide then
+-- opt.guicursor = "a:block-blinkwait500-blinkon500-blinkoff500-Cursor/lCursor"
+opt.guicursor =
+  "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait500-blinkon500-blinkoff500-Cursor/lCursor"
+-- end
 opt.hlsearch = true
 opt.ignorecase = true
 opt.inccommand = "nosplit" -- preview incremental substitute

@@ -102,8 +102,8 @@ return {
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, key_opts)
           vim.keymap.set({ "n", "i" }, "<C-s>", vim.lsp.buf.signature_help, key_opts)
           vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, key_opts)
-          -- vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, key_opts)
-          vim.keymap.set({ "n", "v" }, "<space>ca", require("actions-preview").code_actions, key_opts)
+          vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, key_opts)
+          -- vim.keymap.set({ "n", "v" }, "<space>ca", require("actions-preview").code_actions, key_opts)
           vim.keymap.set("n", "gr", vim.lsp.buf.references, key_opts)
 
           -- Extra step for LTeX
@@ -206,6 +206,7 @@ return {
   { "barreiroleo/ltex_extra.nvim" },
   {
     "aznhe21/actions-preview.nvim",
+    enabled = false,  -- FIXME: causing troubles with showing diffs right now
     opts = {
       telescope = {
         wrap_results = true,

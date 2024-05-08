@@ -2,6 +2,7 @@ return {
   {
     "mfussenegger/nvim-lint",
     event = "LazyFile",
+    enabled = false,
     opts = {
       events = { "BufWritePost", "BufReadPost", "InsertLeave" },
       -- linters_by_ft = { markdown = { "markdownlint" } },

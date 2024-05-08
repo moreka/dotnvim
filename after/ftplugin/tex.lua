@@ -53,3 +53,6 @@ vim.cmd([[
   inoremap <F1> <Esc>: silent exec '.!~/git/inkscape-figures/venv/bin/inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>
   nnoremap <F1> : silent exec '!~/git/inkscape-figures/venv/bin/inkscape-figures edit "'.b:vimtex.root.'/figures/" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>
 ]])
+
+-- jumping to tags; making it work for labels that have hyphen in them
+vim.opt_local.iskeyword:append("45")

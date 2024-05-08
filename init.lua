@@ -6,7 +6,6 @@ if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0.13
   vim.g.neovide_cursor_trail_size = 0
   vim.g.neovide_cursor_animate_command_line = false
-  -- vim.o.guicursor = "a:block-blinkwait500-blinkon500-blinkoff500-Cursor/lCursor"
 
   vim.keymap.set({ "n", "v", "x" }, "<M-S-k>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1<CR>")
   vim.keymap.set({ "n", "v", "x" }, "<M-S-j>", ":lua vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1<CR>")

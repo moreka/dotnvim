@@ -11,7 +11,7 @@ opt.backup = false
 opt.breakindent = true
 opt.completeopt = "menu,menuone,noselect"
 opt.confirm = true
-opt.cursorline = true
+opt.cursorline = false
 opt.expandtab = true
 opt.fillchars = {
   foldopen = "",
@@ -25,11 +25,8 @@ opt.fillchars = {
 opt.formatoptions = "jcroqlnt" -- tcqj
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
---if not vim.g.neovide then
--- opt.guicursor = "a:block-blinkwait500-blinkon500-blinkoff500-Cursor/lCursor"
 opt.guicursor =
   "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait500-blinkon500-blinkoff500-Cursor/lCursor"
--- end
 opt.hlsearch = true
 opt.ignorecase = true
 opt.inccommand = "nosplit" -- preview incremental substitute
@@ -48,6 +45,7 @@ opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "glob
 opt.shiftround = true -- Round indent to multiple of shiftwidth
 opt.shiftwidth = 2
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
+opt.showbreak = "󱞩 "
 opt.showmode = false
 opt.sidescrolloff = 8 -- Columns of context
 opt.signcolumn = "yes"
@@ -66,7 +64,7 @@ opt.timeoutlen = 300
 opt.undofile = true
 opt.undodir = { vim.fn.stdpath("data") .. "/undodir" }
 opt.undolevels = 10000
-opt.updatetime = 200
+opt.updatetime = 250
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.wildmode = "longest:full,full"
 opt.winminwidth = 5

@@ -14,29 +14,6 @@ return {
     end,
   },
   { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      window = {
-        backdrop = 1,
-        options = {
-          signcolumn = "no", -- disable signcolumn
-          number = false, -- disable number column
-          relativenumber = false, -- disable relative numbers
-          cursorline = false, -- disable cursorline
-          cursorcolumn = false, -- disable cursor column
-          foldcolumn = "0", -- disable fold column
-          list = false, -- disable whitespace characters
-        },
-      },
-      plugins = {
-        alacritty = { enabled = true, font = 16 },
-        twilight = { enabled = false },
-        gitsigns = { enabled = false },
-      },
-    },
-    cmd = { "ZenMode" },
-  },
 
   {
     "rose-pine/neovim",
@@ -100,11 +77,4 @@ return {
   { "tjdevries/colorbuddy.nvim" },
   { "lunacookies/vim-colors-xcode", priority = 1000 },
   { "moreka/gruber-darker", priority = 1000, dev = true },
-  {
-    "shaunsingh/nord.nvim",
-    priority = 1000,
-    init = function()
-      vim.g.nord_italic = false
-    end,
-  },
 }

@@ -14,43 +14,6 @@ return {
     end,
   },
   { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
-
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    priority = 1000,
-    opts = {
-      styles = { italic = false },
-      highlight_groups = {
-        Cursor = { bg = "love" },
-        TelescopeBorder = { fg = "overlay", bg = "overlay" },
-        TelescopeNormal = { fg = "subtle", bg = "overlay" },
-        TelescopeSelection = { fg = "text", bg = "highlight_med" },
-        TelescopeSelectionCaret = { fg = "love", bg = "highlight_med" },
-        TelescopeMultiSelection = { fg = "text", bg = "highlight_high" },
-
-        TelescopeTitle = { fg = "base", bg = "love" },
-        TelescopePromptTitle = { fg = "base", bg = "pine" },
-        TelescopePreviewTitle = { fg = "base", bg = "iris" },
-
-        TelescopePromptNormal = { fg = "text", bg = "surface" },
-        TelescopePromptBorder = { fg = "surface", bg = "surface" },
-
-        texCmdEnv = { fg = "foam", bold = true },
-        texMathCmd = { fg = "gold" },
-      },
-    },
-  },
-  {
-    "sainnhe/gruvbox-material",
-    priority = 1000,
-    init = function()
-      vim.g.gruvbox_material_foreground = "mix"
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_enable_italic = 1
-      vim.g.gruvbox_material_better_performance = 1
-    end,
-  },
   {
     "miikanissi/modus-themes.nvim",
     priority = 1000,
@@ -58,6 +21,7 @@ return {
       variant = "default", -- "deuteranopia",
       styles = { keywords = { italic = false } },
       on_highlights = function(h, c)
+        h.DiagnosticVirtualTextInfo = { fg = c.blue_warmer, italic = true }
         -- h.texCmd = { link = "Function" }
         h.texCmdPart = { fg = c.magenta, bold = true }
         h.texPartArgTitle = { fg = c.blue_warmer, bold = true }
@@ -72,8 +36,6 @@ return {
       end,
     },
   },
-  { "echasnovski/mini.base16", version = false, priority = 1000 },
-  { "echasnovski/mini.hues", version = false },
   { "tjdevries/colorbuddy.nvim" },
   { "lunacookies/vim-colors-xcode", priority = 1000 },
   { "moreka/gruber-darker", priority = 1000, dev = true },

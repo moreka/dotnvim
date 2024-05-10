@@ -29,6 +29,8 @@ Color.new("gray0", background_string)
 
 Group.new("Normal", c.superwhite, c.gray0)
 
+Group.new("MatchParen", c.cyan, c.gray1)
+
 Group.new("Folded", g.Comment.fg, c.gray1, s.italic)
 
 Group.new("LineNr", c.gray2:light(), c.gray0)

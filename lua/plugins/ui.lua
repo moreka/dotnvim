@@ -13,7 +13,20 @@ return {
       end
     end,
   },
-  { "moreka/alacritty.nvim", dev = true, event = "Colorscheme", opts = {} },
+  {
+    "moreka/alacritty.nvim",
+    enabled = false,
+    dev = true,
+    event = "Colorscheme",
+    opts = {}
+  },
+  {
+    "junegunn/limelight.vim",
+    cmd = "Limelight",
+    keys = {
+      { "<leader>lf", "<cmd>Limelight!!<cr>" }
+    }
+  },
   {
     "miikanissi/modus-themes.nvim",
     priority = 1000,
@@ -38,5 +51,5 @@ return {
   },
   { "tjdevries/colorbuddy.nvim" },
   { "lunacookies/vim-colors-xcode", priority = 1000 },
-  { "moreka/gruber-darker", priority = 1000, dev = true },
+  { "moreka/gruber-darker",         priority = 1000, dev = true },
 }

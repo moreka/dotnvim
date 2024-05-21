@@ -72,4 +72,17 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+
+-- remove trailing whitespace
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = vim.api.nvim_create_augroup("RemoveWhitespace", {}),
+  pattern = {"*.c", "*.h", "*.tex", "*.bib", "*.py"},
+  callback = function()
+    -- from https://github.com/echasnovski/mini.nvim/blob/b7403ad0c2a4dab777244171ca1b7e8c89696584/lua/mini/trailspace.lua#L111
+    local curpos = vim.api.nvim_win_get_cursor(0)
+    vim.cmd([[keeppatterns %s/\s\+$//e]])
+    vim.api.nvim_win_set_cursor(0, curpos)
+  end,
+})
+
 -- vim: foldmethod=marker

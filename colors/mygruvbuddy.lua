@@ -57,5 +57,7 @@ Group.new("Headline1", c.green, c.gray2, s.bold)
 Group.new("Headline2", c.blue, c.gray2, s.bold)
 Group.new("Headline3", c.yellow, c.gray2, s.bold)
 
+Group.new("DiagnosticVirtualTextInfo", c.blue:dark(), nil, s.italic)
+
 
 Group.new("@function.call.lua", c.blue:dark(), nil, nil)

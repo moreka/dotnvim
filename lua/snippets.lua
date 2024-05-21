@@ -65,6 +65,8 @@ ls.add_snippets("tex", {
 
   s("((", fmta("\\prn*{<>}<>", { i(1), i(0) })),
   s("{{", fmta("\\crl*{<>}<>", { i(1), i(0) })),
+
+  s("defn", fmta("\\defn{<>}<>", { i(1), i(0) })),
 }, {
   key = "tex",
 })
@@ -74,7 +76,6 @@ ls.add_snippets("tex", {
   s("mk", fmta("$<>$<>", { i(1), i(0) })),
   s("__", fmta("\\emph{<>}<>", { i(1), i(0) })),
   s("**", fmta("\\textbf{<>}<>", { i(1), i(0) })),
-  s("defn", fmta("\\defn{<>}<>", { i(1), i(0) })),
 }, {
   type = "autosnippets",
   key = "tex_auto",

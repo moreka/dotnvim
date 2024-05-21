@@ -18,7 +18,17 @@ return {
     end,
   },
   {
+    "MeanderingProgrammer/markdown.nvim",
+    name = "render-markdown",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ft = "markdown",
+    config = function()
+      require("render-markdown").setup({})
+    end,
+  },
+  {
     "lukas-reineke/headlines.nvim",
+    enabled = false,
     opts = function()
       local opts = {}
       for _, ft in ipairs({ "markdown", "norg", "rmd", "org" }) do

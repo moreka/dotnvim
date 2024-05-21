@@ -1,4 +1,4 @@
-local dark_theme = "mygruvbuddy"
+local dark_theme = "tango-dark"
 local light_theme = "solarized_custom"
 
 local hl = vim.api.nvim_set_hl

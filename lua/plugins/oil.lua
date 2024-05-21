@@ -2,6 +2,7 @@ return {
   {
     "stevearc/oil.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
     keys = {
       { "-", "<CMD>Oil<CR>", { desc = "Open parent directory" } },
       {
@@ -17,6 +18,8 @@ return {
         columns = { "icon" },
         keymaps = {
           ["<C-h>"] = false,
+          ["<C-p>"] = false,
+          ["<leader>p"] = "actions.preview",
           ["<M-h>"] = "actions.select_split",
         },
         view_options = {

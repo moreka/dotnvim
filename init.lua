@@ -1,3 +1,5 @@
+-- vim.deprecate = function() end ---@diagnostic disable-line: duplicate-set-field
+
 if vim.g.neovide then
   vim.g.neovide_floating_shadow = true
   vim.g.neovide_floating_z_height = 10

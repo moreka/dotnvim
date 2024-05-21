@@ -1,5 +1,5 @@
 return {
-  { "echasnovski/mini.comment", event = "VeryLazy", opts = {} },
+  -- { "echasnovski/mini.comment", event = "VeryLazy", opts = {} },
   { "tpope/vim-surround", event = "LazyFile" },
   { "tpope/vim-sleuth", event = "LazyFile" },
   {

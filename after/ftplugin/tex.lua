@@ -1,7 +1,14 @@
 vim.opt_local.textwidth = 110
+vim.opt_local.spell = true
 -- vim.opt_local.foldenable = true
 -- vim.opt_local.foldmethod = "expr"
 -- vim.opt_local.foldexpr = "getline(v:lnum)=~'^\\s*%'"
+
+vim.opt_local.formatoptions = vim.opt_local.formatoptions
+  + "t" -- auto-wrap text
+  - "r" -- do not insert comment after enter
+  - "o" -- do not insert comment after o or O
+  + "l" -- do not break long lines
 
 vim.cmd([[
   let g:custom_toc1 = vimtex#toc#new({
@@ -34,19 +41,6 @@ vim.keymap.set("v", "<C-i>", function()
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("Scemph<CR>", true, false, true), "t", false)
 end)
 
--- remove trailing whitespace
-
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  group = vim.api.nvim_create_augroup("RemoveWhitespace", {}),
-  pattern = "*",
-  callback = function()
-    -- from https://github.com/echasnovski/mini.nvim/blob/b7403ad0c2a4dab777244171ca1b7e8c89696584/lua/mini/trailspace.lua#L111
-    local curpos = vim.api.nvim_win_get_cursor(0)
-    vim.cmd([[keeppatterns %s/\s\+$//e]])
-    vim.api.nvim_win_set_cursor(0, curpos)
-  end,
-})
-
 -- inkscape figures
 
 vim.cmd([[
@@ -56,3 +50,7 @@ vim.cmd([[
 
 -- jumping to tags; making it work for labels that have hyphen in them
 vim.opt_local.iskeyword:append("45")
+
+-- as I will be having wrapping for equations, makes sense to add this here
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

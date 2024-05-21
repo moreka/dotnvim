@@ -22,14 +22,25 @@ opt.fillchars = {
   diff = "╱",
   eob = "~",
 }
-opt.formatoptions = "jcroqlnt" -- tcqj
+-- opt.formatoptions = "jcroqlnt" -- tcqj
+opt.formatoptions = opt.formatoptions
+  - "a" -- Auto formatting is BAD.
+  - "t" -- Don't auto format my code. I got linters for that.
+  + "c" -- In general, I like it when comments respect textwidth
+  + "q" -- Allow formatting comments w/ gq
+  - "o" -- O and o, don't continue comments
+  + "r" -- But do continue when pressing enter.
+  + "n" -- Indent past the formatlistpat, not underneath it.
+  + "j" -- Auto-remove comments if possible.
+  - "2" -- I'm not in gradeschool anymore
+
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep"
 opt.guicursor =
   "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait500-blinkon500-blinkoff500-Cursor/lCursor"
 opt.hlsearch = true
 opt.ignorecase = true
-opt.inccommand = "nosplit" -- preview incremental substitute
+opt.inccommand = "split" -- preview incremental substitute
 opt.incsearch = true
 opt.laststatus = 2
 opt.list = true -- Show some invisible characters (tabs...

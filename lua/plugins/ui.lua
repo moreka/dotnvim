@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     config = function()
       local statusline = require("mini.statusline")
-      statusline.setup({ use_icons = true })
+      statusline.setup({ use_icons = true, set_vim_settings = false })
 
       ---@diagnostic disable-next-line: duplicate-set-field
       statusline.section_location = function()
@@ -15,24 +15,30 @@ return {
   },
   {
     "moreka/alacritty.nvim",
-    enabled = false,
+    enabled = true,
     dev = true,
     event = "Colorscheme",
-    opts = {}
+    opts = {},
   },
   {
     "junegunn/limelight.vim",
     cmd = "Limelight",
     keys = {
-      { "<leader>lf", "<cmd>Limelight!!<cr>" }
-    }
+      { "<leader>lf", "<cmd>Limelight!!<cr>" },
+    },
   },
+  { dir = "~/git/tango-dark.nvim", priority = 1000 },
   {
     "miikanissi/modus-themes.nvim",
     priority = 1000,
     opts = {
-      variant = "default", -- "deuteranopia",
+      variant = "tinted", -- "deuteranopia",
       styles = { keywords = { italic = false } },
+      on_colors = function(colors)
+        colors.tinted_bg_main = "#f5eee6"
+        colors.bg_main = "#f5eee6"
+        colors.fg_main = "#424242"
+      end,
       on_highlights = function(h, c)
         h.DiagnosticVirtualTextInfo = { fg = c.blue_warmer, italic = true }
         -- h.texCmd = { link = "Function" }
@@ -51,5 +57,5 @@ return {
   },
   { "tjdevries/colorbuddy.nvim" },
   { "lunacookies/vim-colors-xcode", priority = 1000 },
-  { "moreka/gruber-darker",         priority = 1000, dev = true },
+  { "moreka/gruber-darker", priority = 1000, dev = true },
 }

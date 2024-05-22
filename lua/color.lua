@@ -1,5 +1,5 @@
 local dark_theme = "tango-dark"
-local light_theme = "solarized_custom"
+local light_theme = "modus_operandi"
 
 local hl = vim.api.nvim_set_hl
 local csgrp = vim.api.nvim_create_augroup("colorscheme_group", { clear = true })
@@ -12,6 +12,17 @@ local custom_colors = function(scheme, cb)
     callback = cb,
   })
 end
+
+custom_colors("modus_operandi", function()
+  local bg = require("alacritty").get_color_from_hl_group("Normal", "bg")
+  require("alacritty").alacritty_msg_set_bg(bg)
+  vim.api.nvim_create_autocmd("VimLeave", {
+    pattern = "*",
+    callback = function()
+      require("alacritty").alacritty_msg_set_bg("#181818")
+    end,
+  })
+end)
 
 custom_colors("minischeme", function()
   hl(0, "Normal", { bg = "#e2e5ca", fg = "#000000" })

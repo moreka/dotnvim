@@ -23,9 +23,6 @@ map("n", "<leader>Y", '"+Y') -- yank whole line into clipboard
 map("v", "J", ":m '>+1<CR>gv=gv")
 map("v", "K", ":m '<-2<CR>gv=gv")
 
--- netrw
-map("n", "<leader>pv", "<cmd>Ex<cr>")
-
 map("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 map("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
 map("n", "[q", vim.cmd.cprevious, { desc = "previous quickfix" })
@@ -45,3 +42,12 @@ map("t", "<A-h>", "<C-\\><C-n><C-w>h")
 
 -- map("n", "<C-d>", "<C-d>zz")
 -- map("n", "<C-u>", "<C-u>zz")
+
+-- toggle statusline
+map("n", "<leader>ts", function()
+  if vim.opt.laststatus:get() == 2  then
+    vim.opt.laststatus = 1
+  else
+    vim.opt.laststatus = 2
+  end
+end, { silent = true, desc = "Toggle statusline" })

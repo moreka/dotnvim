@@ -1,4 +1,4 @@
-vim.opt_local.textwidth = 110
+vim.opt_local.textwidth = 100
 vim.opt_local.spell = true
 -- vim.opt_local.foldenable = true
 -- vim.opt_local.foldmethod = "expr"
@@ -54,3 +54,19 @@ vim.opt_local.iskeyword:append("45")
 -- as I will be having wrapping for equations, makes sense to add this here
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Ensure statusline is refreshed
+vim.api.nvim_create_autocmd("User", {
+  pattern = {
+    "VimtexEventCompileStarted",
+    "VimtexEventCompileStopped",
+    "VimtexEventCompileSuccess",
+    "VimtexEventCompileFailed",
+    "VimtexEventCompiling",
+  },
+  desc = "Refresh statusline",
+  group = vim.api.nvim_create_augroup("init_vimtex", { clear = true }),
+  callback = function()
+    vim.cmd("redrawstatus")
+  end,
+})

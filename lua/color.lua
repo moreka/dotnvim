@@ -1,4 +1,4 @@
-local dark_theme = "tango-dark"
+local dark_theme = "mygruvbuddy"
 local light_theme = "modus_operandi"
 
 local hl = vim.api.nvim_set_hl
@@ -66,11 +66,13 @@ end)
 local choptgrp = vim.api.nvim_create_augroup("change_opt_group", { clear = true })
 vim.api.nvim_create_autocmd("OptionSet", {
   group = choptgrp,
-  nested = true,
+  nested = false,
   pattern = "background",
   callback = function()
+    vim.print("background changed opt: " .. vim.opt.background:get())
+    vim.print("background changed o: " .. vim.o.background)
     vim.cmd.hi("clear")
-    if vim.o.background == "light" then
+    if vim.opt.background:get() == "dark" then
       vim.cmd.colorscheme(light_theme)
     else
       vim.cmd.colorscheme(dark_theme)

@@ -3,7 +3,7 @@ return {
     "lervag/vimtex",
     lazy = false,
     init = function()
-      vim.g.vimtex_compiler_silent = 0
+      vim.g.vimtex_compiler_silent = 1
       vim.g.vimtex_complete_bib = {
         simple = 1, -- change to 0 if not using auto-complete
         -- menu_fmt = "@year, @author_short, @title",

@@ -13,6 +13,7 @@ return {
       { "folke/neodev.nvim", opts = {} },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      { "j-hui/fidget.nvim", opts = {} },
     },
     opts = {
       -- options for vim.diagnostic.config()
@@ -60,28 +61,28 @@ return {
         marksman = {},
         pyright = {},
         rust_analyzer = { mason = false },
-        ltex = {
-          settings = {
-            ltex = {
-              language = "en-US",
-              additionalRules = {
-                languageModel = "/home/moreka/codes/ngrams/",
-              },
-              latex = {
-                commands = {
-                  ["\\crefrange{}{}"] = "dummy",
-                  ["\\citep[]{}"] = "dummy",
-                  ["\\citep[][]{}"] = "dummy",
-                  ["\\citet[]{}"] = "dummy",
-                  ["\\ac{}"] = "dummy",
-                  ["\\acl{}"] = "dummy",
-                  ["\\acdef{}"] = "dummy",
-                  ["\\newmacro{}{}"] = "ignore",
-                },
-              },
-            },
-          },
-        },
+        -- ltex = {
+        --   settings = {
+        --     ltex = {
+        --       language = "en-US",
+        --       additionalRules = {
+        --         languageModel = "/home/moreka/codes/ngrams/",
+        --       },
+        --       latex = {
+        --         commands = {
+        --           ["\\crefrange{}{}"] = "dummy",
+        --           ["\\citep[]{}"] = "dummy",
+        --           ["\\citep[][]{}"] = "dummy",
+        --           ["\\citet[]{}"] = "dummy",
+        --           ["\\ac{}"] = "dummy",
+        --           ["\\acl{}"] = "dummy",
+        --           ["\\acdef{}"] = "dummy",
+        --           ["\\newmacro{}{}"] = "ignore",
+        --         },
+        --       },
+        --     },
+        --   },
+        -- },
       },
       setup = {},
     },
@@ -92,7 +93,7 @@ return {
         group = lspgroup,
         callback = function(args)
           local buffer = args.buf
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "must have valid client")
           local key_opts = { buffer = buffer }
 
           -- TODO: change to telescope
@@ -107,11 +108,15 @@ return {
           vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, key_opts)
 
           -- Extra step for LTeX
-          if client and client.name == "ltex" then
+          if client.name == "ltex" then
             require("ltex_extra").setup({
               load_langs = { "en-US" },
               path = vim.fn.stdpath("data") .. "/ltex",
             })
+          end
+
+          if vim.bo[buffer].filetype == "lua" then
+            client.server_capabilities.semanticTokensProvider = nil
           end
         end,
       })

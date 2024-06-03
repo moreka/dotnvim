@@ -1,11 +1,9 @@
--- vim.deprecate = function() end ---@diagnostic disable-line: duplicate-set-field
-
 if vim.g.neovide then
   vim.g.neovide_floating_shadow = true
   vim.g.neovide_floating_z_height = 10
   vim.g.neovide_light_angle_degrees = 45
   vim.g.neovide_light_radius = 5
-  vim.g.neovide_cursor_animation_length = 0.13
+  vim.g.neovide_cursor_animation_length = 0 -- 0.13
   vim.g.neovide_cursor_trail_size = 0
   vim.g.neovide_cursor_animate_command_line = false
 

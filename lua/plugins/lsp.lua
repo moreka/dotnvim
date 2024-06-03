@@ -10,7 +10,6 @@ return {
     "neovim/nvim-lspconfig",
     event = "LazyFile",
     dependencies = {
-      { "folke/neodev.nvim", opts = {} },
       "mason.nvim",
       "williamboman/mason-lspconfig.nvim",
       { "j-hui/fidget.nvim", opts = {} },
@@ -99,13 +98,10 @@ return {
           -- TODO: change to telescope
 
           vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, key_opts)
           vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, key_opts)
-          vim.keymap.set({ "n", "i" }, "<C-s>", vim.lsp.buf.signature_help, key_opts)
-          vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, key_opts)
           -- vim.keymap.set({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, key_opts)
-          vim.keymap.set({ "n", "v" }, "<space>ca", require("actions-preview").code_actions, key_opts)
-          vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, key_opts)
+          vim.keymap.set({ "n", "v" }, "gra", require("actions-preview").code_actions, key_opts)
+          vim.keymap.set("n", "grr", require("telescope.builtin").lsp_references, key_opts)
 
           -- Extra step for LTeX
           if client.name == "ltex" then
@@ -217,5 +213,30 @@ return {
         wrap_results = true,
       },
     },
+  },
+  {
+    "folke/lazydev.nvim",
+    ft = "lua", -- only load on lua files
+    opts = {
+      library = {
+        -- Library items can be absolute paths
+        -- "~/projects/my-awesome-lib",
+        -- Or relative, which means they will be resolved as a plugin
+        -- "LazyVim",
+        -- When relative, you can also provide a path to the library in the plugin dir
+        "luvit-meta/library", -- see below
+      },
+    },
+  },
+  { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+  { -- optional completion source for require statements and module annotations
+    "hrsh7th/nvim-cmp",
+    opts = function(_, opts)
+      opts.sources = opts.sources or {}
+      table.insert(opts.sources, {
+        name = "lazydev",
+        group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+      })
+    end,
   },
 }

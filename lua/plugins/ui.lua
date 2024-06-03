@@ -74,13 +74,12 @@ return {
       plugins = {
         alacritty = {
           enabled = true,
-          font = 16,
+          font = 18,
         },
       },
     },
   },
   { dir = "~/git/tango-dark.nvim", priority = 1000 },
-  { "nyoom-engineering/oxocarbon.nvim", priority = 1000 },
   {
     "miikanissi/modus-themes.nvim",
     priority = 1000,
@@ -90,8 +89,10 @@ return {
       on_colors = function(colors)
         -- colors.tinted_bg_main = "#f5eee6"
         -- colors.bg_main = "#f5eee6"
+        -- colors.bg_main = "#fff8ec"
+        -- colors.bg_main = "#d9d3c9"
         -- colors.fg_main = "#424242"
-        colors.visual = "#bdbdbd"
+        -- colors.visual = "#bdbdbd"
       end,
       on_highlights = function(h, c)
         h.DiagnosticVirtualTextInfo = { fg = c.blue_warmer, italic = true }
@@ -120,7 +121,8 @@ return {
       end,
     },
   },
+  { "rose-pine/neovim", name = "rose-pine", priority = 1000, opts = { styles = { transparency = true } } },
   { "tjdevries/colorbuddy.nvim" },
   { "lunacookies/vim-colors-xcode", priority = 1000 },
-  { "moreka/gruber-darker", priority = 1000, dev = true },
+  { "moreka/gruber-darker", priority = 1000, dev = true, opts = { transparent = true } },
 }

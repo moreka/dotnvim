@@ -1,5 +1,6 @@
 vim.opt_local.textwidth = 100
-vim.opt_local.spell = true
+-- vim.opt_local.conceallevel = 2
+-- vim.opt_local.spell = true
 -- vim.opt_local.foldenable = true
 -- vim.opt_local.foldmethod = "expr"
 -- vim.opt_local.foldexpr = "getline(v:lnum)=~'^\\s*%'"
@@ -70,3 +71,6 @@ vim.api.nvim_create_autocmd("User", {
     vim.cmd("redrawstatus")
   end,
 })
+
+-- manual compilation
+vim.keymap.set("n", "<localleader>l;", "<cmd>VimtexCompileSS<cr>", {})

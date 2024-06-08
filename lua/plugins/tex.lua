@@ -10,6 +10,7 @@ return {
       }
       vim.g.vimtex_doc_handlers = { "vimtex#doc#handlers#texdoc" }
       vim.g.vimtex_format_enabled = 1
+      vim.g.vimtex_quickfix_method = "pplatex"
       vim.g.vimtex_quickfix_open_on_warning = 0
       vim.g.vimtex_matchparen_enabled = 0
       vim.g.vimtex_syntax_enabled = 1
@@ -27,7 +28,8 @@ return {
         "Generic hook",
         "LaTeX Font Warning:",
         "Package hyperref Warning: Token not allowed in a PDF string",
-        -- "Underfull",
+        "destination with the same identifier",
+        "Underfull",
         -- "Overfull",
       }
       vim.g.vimtex_syntax_custom_cmds = {

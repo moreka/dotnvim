@@ -3,6 +3,7 @@ return {
     "stevearc/conform.nvim",
     dependencies = { "mason.nvim" },
     cmd = "ConformInfo",
+    -- event = { "BufWritePre" },
     keys = {
       {
         "<leader>f",
@@ -29,6 +30,14 @@ return {
           args = { "-m", "-l", "-" },
         },
       },
+      -- format_on_save = function(bufnr)
+      --   if vim.bo[bufnr].filetype == "tex" then
+      --     return {
+      --       timeout_ms = 500,
+      --       lsp_fallback = false,
+      --     }
+      --   end
+      -- end,
     },
   },
 }

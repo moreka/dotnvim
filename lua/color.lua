@@ -1,4 +1,4 @@
-local dark_theme = "mygruvbuddy"
+local dark_theme = "gruber-darker"
 local light_theme = "modus_operandi"
 
 local hl = vim.api.nvim_set_hl
@@ -63,22 +63,22 @@ custom_colors("xcodelight", function()
 ]])
 end)
 
-local choptgrp = vim.api.nvim_create_augroup("change_opt_group", { clear = true })
-vim.api.nvim_create_autocmd("OptionSet", {
-  group = choptgrp,
-  nested = false,
-  pattern = "background",
-  callback = function()
-    vim.print("background changed opt: " .. vim.opt.background:get())
-    vim.print("background changed o: " .. vim.o.background)
-    vim.cmd.hi("clear")
-    if vim.opt.background:get() == "dark" then
-      vim.cmd.colorscheme(light_theme)
-    else
-      vim.cmd.colorscheme(dark_theme)
-    end
-  end,
-})
+-- local choptgrp = vim.api.nvim_create_augroup("change_opt_group", { clear = true })
+-- vim.api.nvim_create_autocmd("OptionSet", {
+--   group = choptgrp,
+--   nested = false,
+--   pattern = "background",
+--   callback = function()
+--     vim.print("background changed opt: " .. vim.opt.background:get())
+--     vim.print("background changed o: " .. vim.o.background)
+--     vim.cmd.hi("clear")
+--     if vim.opt.background:get() == "dark" then
+--       vim.cmd.colorscheme(light_theme)
+--     else
+--       vim.cmd.colorscheme(dark_theme)
+--     end
+--   end,
+-- })
 
 if os.getenv("BACKGROUND") == "light" then
   vim.o.background = "light"
